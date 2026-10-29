@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# 404 uses a noindex meta tag rather than a crawl block.
+Disallow: /404.html
+
+Sitemap: https://pages.kumo.my.id/sitemap.xml

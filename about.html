@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>About This Site — Kumo Index Test</title>
+  <meta name="description" content="What the Kumo Index Test site is, how it is deployed on Cloudflare Pages, and how to verify that Google has indexed each page.">
+  <link rel="canonical" href="https://pages.kumo.my.id/about.html">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Kumo Index Test">
+  <meta property="og:title" content="About This Site — Kumo Index Test">
+  <meta property="og:description" content="What the Kumo Index Test site is and how to verify that Google has indexed each page.">
+  <meta property="og:url" content="https://pages.kumo.my.id/about.html">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="About This Site — Kumo Index Test">
+  <meta name="twitter:description" content="What the Kumo Index Test site is and how to verify that Google has indexed each page.">
+
+  <link rel="stylesheet" href="/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://pages.kumo.my.id/about.html#webpage",
+        "url": "https://pages.kumo.my.id/about.html",
+        "name": "About This Site — Kumo Index Test",
+        "description": "What the Kumo Index Test site is and how to verify that Google has indexed each page.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://pages.kumo.my.id/#website" }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://pages.kumo.my.id/#website",
+        "url": "https://pages.kumo.my.id/",
+        "name": "Kumo Index Test",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://pages.kumo.my.id/#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://pages.kumo.my.id/#organization",
+        "name": "Kumo Index Test",
+        "url": "https://pages.kumo.my.id/"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/">Kumo Index Test</a>
+    <nav aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about.html" aria-current="page">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>About This Site</h1>
+
+    <p>
+      This site is a controlled fixture for search indexing experiments. It is deployed as a
+      plain static site on Cloudflare Pages: no server-side rendering, no client-side routing,
+      no JavaScript that the crawler has to execute before it can read the content.
+    </p>
+
+    <h2>Why the design is deliberately minimal</h2>
+    <p>
+      Every added layer is a place where crawling can differ from what a human sees. By serving
+      static HTML over a normal CDN with no build step, the page a search engine receives is the
+      same bytes a browser receives. That removes rendering as a variable when a page behaves
+      unexpectedly in the index.
+    </p>
+
+    <h2 id="verification">Verifying that a page is indexed</h2>
+    <p>
+      Use the URL Inspection tool in Google Search Console. Enter the exact URL and read the
+      reported status. The useful outcomes are:
+    </p>
+    <ul>
+      <li><strong>URL is on Google</strong> — the page is indexed and can appear in results.</li>
+      <li><strong>URL is not on Google</strong> — the crawler may know the URL but has not indexed it. Sub-reasons include "Discovered — currently not indexed" and "Crawled — currently not indexed".</li>
+      <li><strong>Excluded by noindex tag</strong> — a directive is actively blocking indexing; fix the tag, then request a re-crawl.</li>
+    </ul>
+    <p>
+      Both of the "currently not indexed" states are normal for a new or low-signal hostname.
+      They usually mean the crawler has queued the page but has not judged it worth indexing
+      yet, not that something is broken.
+    </p>
+
+    <h2>Requesting a fresh crawl</h2>
+    <p>
+      After deploying a change, use <em>Request Indexing</em> in the URL Inspection tool. This
+      queues a recrawl of that single URL. It does not guarantee indexing and it is rate-limited,
+      so it is worth reserving for changes that actually alter the page's content or metadata.
+    </p>
+
+    <h2>Supporting files</h2>
+    <ul>
+      <li><a href="/sitemap.xml">sitemap.xml</a> — the URL list submitted in Search Console.</li>
+      <li><a href="/robots.txt">robots.txt</a> — crawl permissions and sitemap reference.</li>
+    </ul>
+
+    <p><a href="/">Return to the home page</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p>Kumo Index Test — a static site for search indexing experiments.</p>
+    <p><a href="/">Home</a></p>
+  </footer>
+</body>
+</html>

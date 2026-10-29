@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Kumo Index Test — Google Search Indexing Sandbox</title>
+  <meta name="description" content="A small static site used to test how Google discovers, crawls, and indexes pages. Includes a sitemap, robots.txt, and structured data for verification.">
+  <link rel="canonical" href="https://pages.kumo.my.id/">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kumo Index Test">
+  <meta property="og:title" content="Kumo Index Test — Google Search Indexing Sandbox">
+  <meta property="og:description" content="A small static site used to test how Google discovers, crawls, and indexes pages.">
+  <meta property="og:url" content="https://pages.kumo.my.id/">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Kumo Index Test — Google Search Indexing Sandbox">
+  <meta name="twitter:description" content="A small static site used to test how Google discovers, crawls, and indexes pages.">
+
+  <link rel="stylesheet" href="/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://pages.kumo.my.id/#website",
+        "url": "https://pages.kumo.my.id/",
+        "name": "Kumo Index Test",
+        "description": "A small static site used to test how Google discovers, crawls, and indexes pages.",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://pages.kumo.my.id/#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://pages.kumo.my.id/#organization",
+        "name": "Kumo Index Test",
+        "url": "https://pages.kumo.my.id/"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/">Kumo Index Test</a>
+    <nav aria-label="Primary">
+      <a href="/" aria-current="page">Home</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Google Search Indexing Test Page</h1>
+
+    <p>
+      This is the home page of the <strong>Kumo Index Test</strong> site. It exists for one
+      purpose: to observe how a search engine discovers a page, fetches it, and decides whether
+      to add it to its index. The site is intentionally small and static so that every signal a
+      crawler reads is visible and easy to reason about.
+    </p>
+
+    <h2>What this site contains</h2>
+    <ul>
+      <li>A home page and an <a href="/about.html">about page</a>, linked to each other with ordinary HTML anchors.</li>
+      <li>A <a href="/sitemap.xml">sitemap</a> listing every public URL on the site.</li>
+      <li>A <a href="/robots.txt">robots.txt</a> file that allows crawling and points to the sitemap.</li>
+      <li>Canonical URLs and schema.org structured data on each page.</li>
+    </ul>
+
+    <h2>Why a separate test site helps</h2>
+    <p>
+      Indexing a brand new hostname is not instant. A crawler has to be told the site exists,
+      has to reach the server, and has to find content worth keeping. Testing that process on a
+      throwaway hostname means you can tell whether a delay comes from the page itself or from
+      the search engine's own discovery schedule.
+    </p>
+
+    <h2>How to verify indexing</h2>
+    <p>
+      Searching for your own site is an unreliable check: rankings fluctuate and results are
+      personalised. The dependable method is the
+      <a href="/about.html#verification">URL Inspection tool</a> in Google Search Console, which
+      reports the crawler's last fetch, the indexed version of the page, and any excluded status
+      for that exact URL.
+    </p>
+
+    <p class="note">
+      Last updated: <time datetime="2026-10-29">29 October 2026</time>
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <p>Kumo Index Test — a static site for search indexing experiments.</p>
+    <p><a href="/about.html">About this site</a></p>
+  </footer>
+</body>
+</html>

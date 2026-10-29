@@ -1,0 +1,135 @@
+/* Minimal stylesheet: no JavaScript, no external fonts, no framework. */
+
+:root {
+  --text: #1a1a1a;
+  --muted: #5f6368;
+  --link: #0b57d0;
+  --border: #e0e0e0;
+  --bg: #ffffff;
+  --measure: 42rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e8eaed;
+    --muted: #9aa0a6;
+    --link: #8ab4f8;
+    --border: #3c4043;
+    --bg: #171717;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  max-width: var(--measure);
+  margin: 0 auto;
+}
+
+.brand {
+  font-weight: 650;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.site-header nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9375rem;
+}
+
+.site-header nav a[aria-current="page"] {
+  color: var(--text);
+  font-weight: 600;
+}
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+}
+
+h1 {
+  font-size: 1.85rem;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  margin: 0 0 1.25rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  line-height: 1.35;
+  margin: 2.25rem 0 0.75rem;
+}
+
+p {
+  margin: 0 0 1.1rem;
+}
+
+ul {
+  margin: 0 0 1.1rem;
+  padding-left: 1.35rem;
+}
+
+li {
+  margin-bottom: 0.45rem;
+}
+
+a {
+  color: var(--link);
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 2.5rem;
+}
+
+.site-footer {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.site-footer p {
+  margin: 0 0 0.4rem;
+}
